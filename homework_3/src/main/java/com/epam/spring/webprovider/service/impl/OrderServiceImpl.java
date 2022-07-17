@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
+
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
 
@@ -35,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO makeOrder(OrderDTO orderDTO) {
         orderDTO.setOrderStatus(OrderStatus.CREATED);
         Order order = OrderMapper.INSTANCE.orderDTOToOrder(orderDTO);
-        order.setUser(userRepository.getUser(orderDTO.getUserDTO().getEmail()));
+        order.setUser(userRepository.getUser(orderDTO.getUser().getEmail()));
         log.info("Order with id {} was created", orderDTO.getId());
         return OrderMapper.INSTANCE.orderToOrderDTO(order);
     }

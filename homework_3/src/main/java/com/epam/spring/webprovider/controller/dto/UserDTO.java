@@ -11,10 +11,7 @@ import java.math.BigDecimal;
 public class UserDTO {
 
     private Role role;
-
     private String email;
-
     private BigDecimal accountState;
-
     private boolean isBlocked;
 }

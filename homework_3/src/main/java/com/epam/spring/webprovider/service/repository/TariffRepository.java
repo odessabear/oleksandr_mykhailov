@@ -8,7 +8,7 @@ public interface TariffRepository {
 
     Tariff getTariffById(Integer id);
 
-    Tariff getTariffByCategoryName(String categoryName);
+    Tariff getTariffsByCategoryName(String categoryName);
 
     List<Tariff> getAllTariffs();
 

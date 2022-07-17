@@ -22,7 +22,7 @@ public class TariffRepositoryImpl implements TariffRepository {
     }
 
     @Override
-    public Tariff getTariffByCategoryName(String categoryName) {
+    public Tariff getTariffsByCategoryName(String categoryName) {
         return tariffList.stream()
                 .filter(tariff -> tariff.getCategory().getName().equals(categoryName))
                 .findFirst()

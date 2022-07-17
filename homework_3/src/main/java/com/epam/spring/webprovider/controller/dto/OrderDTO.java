@@ -13,16 +13,10 @@ import java.util.List;
 public class OrderDTO {
 
     private Integer id;
-
-    private UserDTO userDTO;
-
-    private List<TariffDTO> tariffDTOList;
-
+    private UserDTO user;
+    private List<TariffDTO> tariffList;
     private BigDecimal orderCost;
-
     private Timestamp createDate;
-
     private Timestamp updateDate;
-
     private OrderStatus orderStatus;
 }

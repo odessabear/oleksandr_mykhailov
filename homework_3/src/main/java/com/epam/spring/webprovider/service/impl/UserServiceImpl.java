@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 @Slf4j
 @RequiredArgsConstructor
-@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
