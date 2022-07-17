@@ -38,7 +38,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = OrderMapper.INSTANCE.orderDTOToOrder(orderDTO);
         order.setUser(userRepository.getUser(orderDTO.getUser().getEmail()));
         log.info("Order with id {} was created", orderDTO.getId());
-        return OrderMapper.INSTANCE.orderToOrderDTO(order);
+        return OrderMapper.INSTANCE.orderToOrderDTO(orderRepository.createOrder(order));
     }
 
     @Override

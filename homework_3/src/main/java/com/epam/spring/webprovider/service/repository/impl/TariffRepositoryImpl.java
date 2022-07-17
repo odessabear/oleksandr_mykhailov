@@ -22,14 +22,6 @@ public class TariffRepositoryImpl implements TariffRepository {
     }
 
     @Override
-    public Tariff getTariffsByCategoryName(String categoryName) {
-        return tariffList.stream()
-                .filter(tariff -> tariff.getCategory().getName().equals(categoryName))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("There is no such tariff in this Category"));
-    }
-
-    @Override
     public List<Tariff> getAllTariffs() {
         return new ArrayList<>(tariffList);
     }

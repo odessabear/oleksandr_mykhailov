@@ -8,8 +8,6 @@ public interface TariffRepository {
 
     Tariff getTariffById(Integer id);
 
-    Tariff getTariffsByCategoryName(String categoryName);
-
     List<Tariff> getAllTariffs();
 
     Tariff createTariff(Tariff tariff);
