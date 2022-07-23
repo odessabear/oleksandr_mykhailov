@@ -20,7 +20,7 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public List<CategoryDTO> getAllCategories() {
-        log.info("Get all categories");
+        log.info(this.getClass().getSimpleName() + " getAllCategories() method");
         return categoryService.getAllCategories();
     }
 
@@ -34,7 +34,7 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public CategoryDTO createCategory(@RequestBody CategoryDTO categoryDTO) {
-        log.info("createCategory with name {}", categoryDTO.getName());
+        log.info(this.getClass().getSimpleName() + " createCategory() method");
         return categoryService.createCategory(categoryDTO);
     }
 

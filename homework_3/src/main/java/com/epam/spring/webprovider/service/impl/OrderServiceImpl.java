@@ -24,6 +24,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderDTO> getOrdersByUserEmail(String email) {
+        log.info("Get orders by user with email: {}", email);
         return orderRepository.orderList()
                 .stream()
                 .filter(order -> order.getUser()

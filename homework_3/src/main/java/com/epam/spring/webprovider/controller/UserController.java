@@ -20,7 +20,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public List<UserDTO> getAllUsers() {
-        log.info(this.getClass().getSimpleName() + " getAllUsers endpoint");
+        log.info(this.getClass().getSimpleName() + " getAllUsers() method");
         return userService.getAllUsers();
     }
 
@@ -34,7 +34,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public UserDTO createUser(@RequestBody UserDTO userDTO) {
-        log.info("createUser with email {}", userDTO.getEmail());
+        log.info(this.getClass().getSimpleName() + " createUser() method");
         return userService.createUser(userDTO);
     }
 

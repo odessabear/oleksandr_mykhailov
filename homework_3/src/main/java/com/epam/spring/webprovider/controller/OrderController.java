@@ -32,14 +32,14 @@ public class OrderController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{id}/canceled")
+    @PostMapping("/{id}/canceled")
     public void cancelOrder(@PathVariable Integer id) {
         log.info("cancel order by id {}", id);
         orderService.cancelOrder(id);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{id}/paid")
+    @PostMapping("/{id}/paid")
     public void payOrder(@PathVariable Integer id) {
         log.info("pay order by id {}", id);
         orderService.payOrder(id);

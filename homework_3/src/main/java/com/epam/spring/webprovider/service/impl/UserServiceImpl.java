@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUser(String email) {
-        log.info(this.getClass().getSimpleName() + " getUser method");
+        log.info(this.getClass().getSimpleName() + " getUser() method");
         User user = userRepository.getUser(email);
         return UserMapper.INSTANCE.userToUserDTO(user);
     }
@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
-        log.info(this.getClass().getSimpleName() + " createUser method");
+        log.info(this.getClass().getSimpleName() + " createUser() method");
         User user = UserMapper.INSTANCE.userDTOToUser(userDTO);
         user = userRepository.creatUser(user);
         return UserMapper.INSTANCE.userToUserDTO(user);
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO updateUser(String email, UserDTO userDTO) {
-        log.info(this.getClass().getSimpleName() + " updateUser method");
+        log.info(this.getClass().getSimpleName() + " updateUser() method");
         User user = UserMapper.INSTANCE.userDTOToUser(userDTO);
         user = userRepository.updateUser(email, user);
         return UserMapper.INSTANCE.userToUserDTO(user);

@@ -22,12 +22,14 @@ public class TariffServiceImpl implements TariffService {
 
     @Override
     public TariffDTO getTariffById(Integer id) {
+        log.info(this.getClass().getSimpleName() + " getTariffById() method");
         Tariff tariff = tariffRepository.getTariffById(id);
         return TariffMapper.INSTANCE.tariffToTariffDTO(tariff);
     }
 
     @Override
     public List<TariffDTO> getTariffsByCategoryName(String categoryName) {
+        log.info(this.getClass().getSimpleName() + " getTariffsByCategoryName() method");
         List<Tariff> tariffList = tariffRepository.getAllTariffs();
         Optional.ofNullable(categoryName)
                 .ifPresent((name) -> tariffList.removeIf(tariff -> !tariff.getCategory()
@@ -39,7 +41,7 @@ public class TariffServiceImpl implements TariffService {
 
     @Override
     public TariffDTO createTariff(TariffDTO tariffDTO) {
-        log.info(this.getClass().getSimpleName() + " createTariff()");
+        log.info(this.getClass().getSimpleName() + " createTariff() method");
         Tariff tariff = TariffMapper.INSTANCE.tariffDTOToTariff(tariffDTO);
         tariff = tariffRepository.createTariff(tariff);
         return TariffMapper.INSTANCE.tariffToTariffDTO(tariff);
@@ -47,7 +49,7 @@ public class TariffServiceImpl implements TariffService {
 
     @Override
     public TariffDTO updateTariff(Integer id, TariffDTO tariffDTO) {
-        log.info(this.getClass().getSimpleName() + " updateTariff()");
+        log.info(this.getClass().getSimpleName() + " updateTariff() method");
         Tariff tariff = TariffMapper.INSTANCE.tariffDTOToTariff(tariffDTO);
         tariff = tariffRepository.updateTariff(id, tariff);
         return TariffMapper.INSTANCE.tariffToTariffDTO(tariff);

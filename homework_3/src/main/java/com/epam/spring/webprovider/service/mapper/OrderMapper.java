@@ -5,8 +5,6 @@ import com.epam.spring.webprovider.service.model.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import java.util.List;
-
 @Mapper
 public interface OrderMapper {
 
@@ -15,6 +13,4 @@ public interface OrderMapper {
     OrderDTO orderToOrderDTO(Order order);
 
     Order orderDTOToOrder(OrderDTO orderDTO);
-
-    List<OrderDTO> ordersToOrdersDTO(List<Order> orders);
 }

@@ -20,18 +20,20 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDTO getCategory(String name) {
+        log.info(this.getClass().getSimpleName() + " getCategory() method");
         Category category = categoryRepository.getCategory(name);
         return CategoryMapper.INSTANCE.categoryToCategoryDTO(category);
     }
 
     @Override
     public List<CategoryDTO> getAllCategories() {
+        log.info(this.getClass().getSimpleName() + " getAllCategories() method");
         return CategoryMapper.INSTANCE.categoriesToCategoriesDTO(categoryRepository.getAllCategories());
     }
 
     @Override
     public CategoryDTO createCategory(CategoryDTO categoryDTO) {
-        log.info(this.getClass().getSimpleName() + " createCategory method");
+        log.info(this.getClass().getSimpleName() + " createCategory() method");
         Category category = CategoryMapper.INSTANCE.categoryDTOToCategory(categoryDTO);
         category = categoryRepository.createCategory(category);
         return CategoryMapper.INSTANCE.categoryToCategoryDTO(category);
@@ -39,7 +41,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public CategoryDTO updateCategory(Integer id, CategoryDTO categoryDTO) {
-        log.info(this.getClass().getSimpleName() + " updateCategory method");
+        log.info(this.getClass().getSimpleName() + " updateCategory() method");
         Category category = CategoryMapper.INSTANCE.categoryDTOToCategory(categoryDTO);
         category = categoryRepository.updateCategory(id, category);
         return CategoryMapper.INSTANCE.categoryToCategoryDTO(category);
@@ -47,7 +49,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void deleteCategory(Integer id) {
-        log.info(this.getClass().getSimpleName() + " deleteCategory method");
+        log.info(this.getClass().getSimpleName() + " deleteCategory() method");
         categoryRepository.deleteCategory(id);
     }
 }
