@@ -1,5 +1,6 @@
 package com.epam.spring.webprovider.service.repository.impl;
 
+import com.epam.spring.webprovider.service.exceptions.TariffNotFoundException;
 import com.epam.spring.webprovider.service.model.Tariff;
 import com.epam.spring.webprovider.service.repository.TariffRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class TariffRepositoryImpl implements TariffRepository {
         return tariffList.stream()
                 .filter(tariff -> tariff.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Tariff doesn't exist!!!"));
+                .orElseThrow(TariffNotFoundException::new);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class TariffRepositoryImpl implements TariffRepository {
         Tariff currentTariff = tariffList.stream()
                 .filter(t -> t.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Tariff doesn't exist!!!"));
+                .orElseThrow(TariffNotFoundException::new);
         tariffList.remove(currentTariff);
         tariff.setId(currentTariff.getId());
         tariffList.add(tariff);

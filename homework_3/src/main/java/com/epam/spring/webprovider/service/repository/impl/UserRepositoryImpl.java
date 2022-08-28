@@ -1,5 +1,6 @@
 package com.epam.spring.webprovider.service.repository.impl;
 
+import com.epam.spring.webprovider.service.exceptions.UserNotFoundException;
 import com.epam.spring.webprovider.service.model.User;
 import com.epam.spring.webprovider.service.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ public class UserRepositoryImpl implements UserRepository {
         return userList.stream()
                 .filter(user -> user.getEmail().equals(email))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("User is not found"));
+                .orElseThrow(UserNotFoundException::new);
     }
 
     @Override
@@ -43,7 +44,7 @@ public class UserRepositoryImpl implements UserRepository {
         if (isDeleted) {
             userList.add(user);
         } else {
-            throw new RuntimeException("User is not found");
+            throw new UserNotFoundException();
         }
         return user;
     }

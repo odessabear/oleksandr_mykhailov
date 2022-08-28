@@ -1,5 +1,6 @@
 package com.epam.spring.webprovider.service.repository.impl;
 
+import com.epam.spring.webprovider.service.exceptions.OrderNotFoundException;
 import com.epam.spring.webprovider.service.model.Order;
 import com.epam.spring.webprovider.service.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class OrderRepositoryImpl implements OrderRepository {
         return orderList().stream()
                 .filter(order -> order.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Order doesn't exist!"));
+                .orElseThrow(OrderNotFoundException::new);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class OrderRepositoryImpl implements OrderRepository {
         Order currentOrder = orderList.stream()
                 .filter(o -> o.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Order wasn't found"));
+                .orElseThrow(OrderNotFoundException::new);
         orderList.remove(currentOrder);
         order.setCreateDate(currentOrder.getCreateDate());
         order.setId(currentOrder.getId());

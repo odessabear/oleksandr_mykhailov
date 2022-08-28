@@ -1,5 +1,6 @@
 package com.epam.spring.webprovider.service.repository.impl;
 
+import com.epam.spring.webprovider.service.exceptions.CategoryNotFoundException;
 import com.epam.spring.webprovider.service.model.Category;
 import com.epam.spring.webprovider.service.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
         return categories.stream()
                 .filter(category -> category.getName().equals(name))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Category doesn't exist"));
+                .orElseThrow(CategoryNotFoundException::new);
     }
 
     @Override
@@ -44,7 +45,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
         Category currentCategory = categories.stream()
                 .filter(c -> c.getId().equals(id))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Category doesn't exist"));
+                .orElseThrow(CategoryNotFoundException::new);
         categories.remove(currentCategory);
         category.setId(currentCategory.getId());
         categories.add(category);
