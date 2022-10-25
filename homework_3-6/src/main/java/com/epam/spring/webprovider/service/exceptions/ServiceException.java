@@ -1,7 +1,7 @@
 package com.epam.spring.webprovider.service.exceptions;
 
 
-import com.epam.spring.webprovider.service.model.ErrorType;
+import com.epam.spring.webprovider.service.model.enums.ErrorType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
