@@ -6,3 +6,11 @@ management:
   endpoint:
     health:
       show-details: always
+  info:
+    env:
+      enabled: true
+info:
+  application:
+    name: TAKOGONET
+    description: Spring Boot application for TAKOGONET Internet provider service.
+    version: 1.0.3

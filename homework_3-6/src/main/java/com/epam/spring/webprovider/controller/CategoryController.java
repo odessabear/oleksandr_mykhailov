@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("provider/category")
+@RequestMapping("takogonet/category")
 @RequiredArgsConstructor
 @Slf4j
 public class CategoryController {
