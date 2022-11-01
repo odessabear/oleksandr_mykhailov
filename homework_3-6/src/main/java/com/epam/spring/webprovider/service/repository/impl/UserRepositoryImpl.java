@@ -31,8 +31,8 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User creatUser(User user) {
-        log.info(this.getClass().getSimpleName() + " create new user {}", user);
         user.setId(userList.size() + 1);
+        log.info(this.getClass().getSimpleName() + " create new user {}", user);
         userList.add(user);
         return user;
     }
