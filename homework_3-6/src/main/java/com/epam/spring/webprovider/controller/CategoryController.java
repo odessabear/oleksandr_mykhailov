@@ -1,10 +1,13 @@
 package com.epam.spring.webprovider.controller;
 
 import com.epam.spring.webprovider.controller.dto.CategoryDTO;
+import com.epam.spring.webprovider.controller.dto.group.OnCreate;
+import com.epam.spring.webprovider.controller.dto.group.OnUpdate;
 import com.epam.spring.webprovider.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,14 +36,14 @@ public class CategoryController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public CategoryDTO createCategory(@RequestBody CategoryDTO categoryDTO) {
+    public CategoryDTO createCategory(@RequestBody @Validated(OnCreate.class) CategoryDTO categoryDTO) {
         log.info(this.getClass().getSimpleName() + " createCategory() method");
         return categoryService.createCategory(categoryDTO);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{id}")
-    public CategoryDTO updateCategory(@PathVariable Integer id, @RequestBody CategoryDTO categoryDTO) {
+    public CategoryDTO updateCategory(@PathVariable Integer id, @RequestBody @Validated(OnUpdate.class) CategoryDTO categoryDTO) {
         log.info("updateCategory with id {}", id);
         return categoryService.updateCategory(id, categoryDTO);
     }

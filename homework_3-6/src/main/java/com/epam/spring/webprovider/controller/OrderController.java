@@ -1,10 +1,12 @@
 package com.epam.spring.webprovider.controller;
 
 import com.epam.spring.webprovider.controller.dto.OrderDTO;
+import com.epam.spring.webprovider.controller.dto.group.OnCreate;
 import com.epam.spring.webprovider.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public class OrderController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public OrderDTO makeOrder(@RequestBody OrderDTO orderDTO) {
+    public OrderDTO makeOrder(@RequestBody @Validated(OnCreate.class) OrderDTO orderDTO) {
         log.info(this.getClass().getSimpleName() + " makeOrder method");
         return orderService.makeOrder(orderDTO);
     }

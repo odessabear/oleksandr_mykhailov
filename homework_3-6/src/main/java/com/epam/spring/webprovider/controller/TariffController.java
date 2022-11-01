@@ -1,10 +1,13 @@
 package com.epam.spring.webprovider.controller;
 
 import com.epam.spring.webprovider.controller.dto.TariffDTO;
+import com.epam.spring.webprovider.controller.dto.group.OnCreate;
+import com.epam.spring.webprovider.controller.dto.group.OnUpdate;
 import com.epam.spring.webprovider.service.TariffService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,14 +35,14 @@ public class TariffController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public TariffDTO createTariff(@RequestBody TariffDTO tariffDTO) {
+    public TariffDTO createTariff(@RequestBody @Validated(OnCreate.class) TariffDTO tariffDTO) {
         log.info("creatTariff with name {}", tariffDTO.getName());
         return tariffService.createTariff(tariffDTO);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{id}")
-    public TariffDTO updateTariff(@PathVariable Integer id, @RequestBody TariffDTO tariffDTO) {
+    public TariffDTO updateTariff(@PathVariable Integer id, @RequestBody @Validated(OnUpdate.class) TariffDTO tariffDTO) {
         log.info("updateTariff with id {}", id);
         return tariffService.updateTariff(id, tariffDTO);
     }

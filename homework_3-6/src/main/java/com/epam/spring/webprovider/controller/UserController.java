@@ -1,10 +1,13 @@
 package com.epam.spring.webprovider.controller;
 
 import com.epam.spring.webprovider.controller.dto.UserDTO;
+import com.epam.spring.webprovider.controller.dto.group.OnCreate;
+import com.epam.spring.webprovider.controller.dto.group.OnUpdate;
 import com.epam.spring.webprovider.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,14 +36,14 @@ public class UserController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public UserDTO createUser(@RequestBody UserDTO userDTO) {
+    public UserDTO createUser(@RequestBody @Validated(OnCreate.class) UserDTO userDTO) {
         log.info(this.getClass().getSimpleName() + " createUser() method");
         return userService.createUser(userDTO);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{email}")
-    public UserDTO updateUser(@PathVariable String email, @RequestBody UserDTO userDTO) {
+    public UserDTO updateUser(@PathVariable String email, @RequestBody @Validated(OnUpdate.class) UserDTO userDTO) {
         log.info("updateUser by email {}", email);
         return userService.updateUser(email, userDTO);
     }
