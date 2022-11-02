@@ -22,7 +22,7 @@ public class UserDTO {
     private Role role;
 
     @Email(groups = {OnCreate.class, OnUpdate.class})
-    @NotBlank(message = "'email' shouldn't be empty", groups = OnCreate.class)
+    @NotBlank(message = "'email' shouldn't be empty", groups = {OnCreate.class, OnUpdate.class})
     private String email;
 
     @Null(message = "'password' should be absent in request", groups = OnUpdate.class)
