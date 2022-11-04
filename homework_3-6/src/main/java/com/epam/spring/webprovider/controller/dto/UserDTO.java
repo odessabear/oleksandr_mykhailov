@@ -21,8 +21,12 @@ public class UserDTO {
     @NotNull(message = "Insert the role. This field shouldn't be empty", groups = OnCreate.class)
     private Role role;
 
-    @Email(groups = {OnCreate.class, OnUpdate.class})
-    @NotBlank(message = "'email' shouldn't be empty", groups = {OnCreate.class, OnUpdate.class})
+    @NotBlank(message = "'login' shouldn't be empty", groups = {OnCreate.class, OnUpdate.class})
+    private String login;
+
+    @Email
+    @Null(message = "'email' shouldn't be absent in request", groups = {OnUpdate.class})
+    @NotBlank(message = "'email' shouldn't be empty", groups = {OnCreate.class})
     private String email;
 
     @Null(message = "'password' should be absent in request", groups = OnUpdate.class)

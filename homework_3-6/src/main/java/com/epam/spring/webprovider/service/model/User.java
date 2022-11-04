@@ -11,6 +11,7 @@ public class User {
 
     private Integer id;
     private Role role;
+    private String login;
     private String email;
     private String password;
     private BigDecimal accountState;
