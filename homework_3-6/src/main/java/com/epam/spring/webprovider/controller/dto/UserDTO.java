@@ -32,7 +32,6 @@ public class UserDTO {
 
     @Password(groups = OnCreate.class)
     @Null(message = "'password' should be absent in request", groups = OnUpdate.class)
-    @NotBlank(message = "'password' shouldn't be empty", groups = OnCreate.class)
     private String password;
 
     @NotNull(message = "'accountState' shouldn't be empty", groups = {OnCreate.class, OnUpdate.class})
