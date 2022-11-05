@@ -1,6 +1,8 @@
 package com.epam.spring.webprovider.service.exceptions;
 
-public class OrderNotFoundException extends ServiceException{
+import com.epam.spring.webprovider.service.model.enums.ErrorType;
+
+public class OrderNotFoundException extends ServiceException {
 
     public static final String DEFAULT_MESSAGE = "Order is not found";
 
@@ -8,4 +10,8 @@ public class OrderNotFoundException extends ServiceException{
         super(DEFAULT_MESSAGE);
     }
 
+    @Override
+    public ErrorType getErrorType() {
+        return ErrorType.PROCESSING_ERROR_TYPE;
+    }
 }
