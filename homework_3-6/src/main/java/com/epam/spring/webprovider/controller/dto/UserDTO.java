@@ -2,6 +2,7 @@ package com.epam.spring.webprovider.controller.dto;
 
 import com.epam.spring.webprovider.controller.dto.group.OnCreate;
 import com.epam.spring.webprovider.controller.dto.group.OnUpdate;
+import com.epam.spring.webprovider.service.constraints.Password;
 import com.epam.spring.webprovider.service.model.Role;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
@@ -29,6 +30,7 @@ public class UserDTO {
     @NotBlank(message = "'email' shouldn't be empty", groups = {OnCreate.class})
     private String email;
 
+    @Password(groups = OnCreate.class)
     @Null(message = "'password' should be absent in request", groups = OnUpdate.class)
     @NotBlank(message = "'password' shouldn't be empty", groups = OnCreate.class)
     private String password;
