@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/takogonet/tariffs")
+@RequestMapping("api/v1/tariffs")
 @RequiredArgsConstructor
 @Slf4j
 public class TariffController {

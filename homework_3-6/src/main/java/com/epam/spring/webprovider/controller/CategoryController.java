@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/takogonet/categories")
+@RequestMapping("api/v1/categories")
 @RequiredArgsConstructor
 @Slf4j
 public class CategoryController {

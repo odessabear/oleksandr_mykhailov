@@ -14,6 +14,7 @@ public interface UserMapper {
 
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
+    //@Mapping(target = "isBlocked", source = "isBlocked")
     @Mapping(ignore = true, target = "password")
     UserDTO userToUserDTO(User user);
 

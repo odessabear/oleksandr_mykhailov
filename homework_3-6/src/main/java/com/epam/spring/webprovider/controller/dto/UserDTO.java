@@ -37,6 +37,6 @@ public class UserDTO {
     @NotNull(message = "'accountState' shouldn't be empty", groups = {OnCreate.class, OnUpdate.class})
     private BigDecimal accountState;
 
-    @Null(message = "'isBlocked' should be absent in request", groups = {OnCreate.class, OnUpdate.class})
+    @Null(message = "'isBlocked' should be absent in request", groups = {OnCreate.class})
     private Boolean isBlocked;
 }

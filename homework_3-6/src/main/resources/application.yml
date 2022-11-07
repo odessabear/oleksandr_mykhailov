@@ -14,3 +14,8 @@ info:
     name: TAKOGONET
     description: Spring Boot application for TAKOGONET Internet provider service.
     version: 1.0.3
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
