@@ -31,7 +31,7 @@ public interface TariffApi {
     @ApiOperation("Get tariff by id")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    TariffDTO getTariffById(@PathVariable int id);
+    TariffDTO getTariffById(@PathVariable Integer id);
 
     @ApiOperation("Create tariff")
     @ResponseStatus(HttpStatus.CREATED)
@@ -44,7 +44,7 @@ public interface TariffApi {
     @ApiOperation("Update tariff")
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{id}")
-    TariffDTO updateTariff(@PathVariable int id, @RequestBody @Validated(OnUpdate.class) TariffDTO tariffDTO);
+    TariffDTO updateTariff(@PathVariable Integer id, @RequestBody @Validated(OnUpdate.class) TariffDTO tariffDTO);
 
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", paramType = "path", required = true, value = "Tariff ID")
@@ -52,5 +52,5 @@ public interface TariffApi {
     @ApiOperation("Delete tariff")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
-    void deleteTariff(@PathVariable int id);
+    void deleteTariff(@PathVariable Integer id);
 }

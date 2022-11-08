@@ -21,7 +21,7 @@ public class TariffController implements TariffApi {
         return tariffService.getTariffsByCategoryName(categoryName);
     }
 
-    public TariffDTO getTariffById(@PathVariable int id) {
+    public TariffDTO getTariffById(@PathVariable Integer id) {
         log.info("getTariff by id {}", id);
         return tariffService.getTariffById(id);
     }
@@ -31,12 +31,12 @@ public class TariffController implements TariffApi {
         return tariffService.createTariff(tariffDTO);
     }
 
-    public TariffDTO updateTariff(int id, TariffDTO tariffDTO) {
+    public TariffDTO updateTariff(Integer id, TariffDTO tariffDTO) {
         log.info("updateTariff with id {}", id);
         return tariffService.updateTariff(id, tariffDTO);
     }
 
-    public void deleteTariff(int id) {
+    public void deleteTariff(Integer id) {
         log.info("deleteTariff with id {}", id);
         tariffService.deleteTariff(id);
     }
