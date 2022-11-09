@@ -29,5 +29,6 @@ public class TariffDTO {
     private BigDecimal price;
 
     @NotNull(message = "'categoryDTO' shouldn't be empty", groups = OnCreate.class)
+    @Null(message = "'categoryDTO' should be absent in request", groups = OnUpdate.class)
     private CategoryDTO category;
 }

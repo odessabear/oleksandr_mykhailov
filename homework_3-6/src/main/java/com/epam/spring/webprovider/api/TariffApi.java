@@ -17,13 +17,13 @@ import java.util.List;
 @RequestMapping("api/v1/tariffs")
 public interface TariffApi {
 
-    //    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "categoryName", paramType = "path", required = true, value = "Category Name")
-//    })
-    @ApiOperation("Get tariff by category")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "categoryName", paramType = "query", value = "Category Name")
+    })
+    @ApiOperation("Get tariff list")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    List<TariffDTO> getTariffsByCategoryName(@RequestParam(required = false) String categoryName);
+    List<TariffDTO> getTariffsByCategoryName(@RequestParam (required = false) String categoryName);
 
     @ApiImplicitParams({
             @ApiImplicitParam(name = "id", paramType = "path", required = true, value = "Tariff ID")

@@ -33,8 +33,8 @@ public class TariffRepositoryImpl implements TariffRepository {
 
     @Override
     public Tariff createTariff(Tariff tariff) {
-        log.info(this.getClass().getSimpleName() + " create new tariff {}", tariff);
         tariff.setId(tariffList.size() + 1);
+        log.info(this.getClass().getSimpleName() + " create new tariff {}", tariff);
         tariffList.add(tariff);
         return tariff;
     }
