@@ -22,13 +22,18 @@ public class TariffClientImpl implements TariffClient {
 
     public Tariff getTariffById(Integer id) {
         ResponseEntity<Tariff> response = restTemplate.getForEntity(RESOURCE_URL + "/" + id, Tariff.class);
-        return response.getBody();
+        Tariff tariff = response.getBody();
+        System.out.println(tariff);
+        return tariff;
     }
 
     @Override
     public List<Tariff> getAllTariffs() {
         ResponseEntity<Tariff[]> response = restTemplate.getForEntity(RESOURCE_URL, Tariff[].class);
-        return Arrays.asList(Objects.requireNonNull(response.getBody()));
+        List<Tariff> tariffs = Arrays.asList(Objects.requireNonNull(response.getBody()));
+        System.out.println(tariffs);
+        return tariffs;
+
     }
 
     @Override

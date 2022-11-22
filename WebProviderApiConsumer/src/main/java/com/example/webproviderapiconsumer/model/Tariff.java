@@ -1,12 +1,14 @@
 package com.example.webproviderapiconsumer.model;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
 @Data
-@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Tariff {
     private Integer id;
     private String name;

@@ -1,10 +1,10 @@
 package com.example.webproviderapiconsumer.model;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@Builder
+@AllArgsConstructor
 public class Category {
     private Integer id;
     private String name;
